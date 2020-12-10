@@ -30,7 +30,11 @@ func main() {
 	fmt.Print("Введите операцию: ")
 	fmt.Scanln(&operation)
 
-	view(a, b, operation)
+	if !(b == 0 && operation == "/") {
+		view(a, b, operation)
+	} else {
+		fmt.Print("На ноль делить нельзя!")
+	}
 
 }
 
