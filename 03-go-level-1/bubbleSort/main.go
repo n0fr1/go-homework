@@ -6,9 +6,9 @@ import (
 
 func main() {
 
-	sliceNum := []int{22, 11, 6, 9, 10, 0, 4, 1, 3, 8, 7, 13, 48}
+	sliceNum := []int{22, -1, 6, 9, 10, 0, 4, 1, -3, 8, 7, 13, 48}
 
-	sortedSlice := sort(sliceNum)
+	sortedSlice := bubbleSort(sliceNum)
 
 	fmt.Println("неотсортированный слайс: ")
 	fmt.Println(sliceNum)
@@ -18,16 +18,16 @@ func main() {
 
 }
 
-func sort(sliceNum []int) []int { //сортировка "пузырьком"
+func bubbleSort(sliceNum []int) []int { //сортировка "пузырьком"
 
 	var sliceSortNum = make([]int, len(sliceNum))
 	copy(sliceSortNum, sliceNum)
 
-	for j := 1; j <= len(sliceSortNum)-1; j++ {
-		for i := 0; i <= len(sliceSortNum)-1-j; i++ {
+	for j := 1; j < len(sliceSortNum); j++ {
+		for el := 0; el < len(sliceSortNum)-j; el++ {
 
-			if sliceSortNum[i] > sliceSortNum[i+1] {
-				sliceSortNum[i], sliceSortNum[i+1] = sliceSortNum[i+1], sliceSortNum[i]
+			if sliceSortNum[el] > sliceSortNum[el+1] {
+				sliceSortNum[el], sliceSortNum[el+1] = sliceSortNum[el+1], sliceSortNum[el]
 			}
 		}
 
