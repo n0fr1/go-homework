@@ -10,8 +10,8 @@ import (
 func main() {
 
 	mapArg := make(map[string]uint64) //мэп - где будет храниться два аргумента и конечный результат
-	mapArg["a"] = 0
-	mapArg["b"] = 0
+	mapArg["firstArg"] = 0
+	mapArg["secondArg"] = 0
 	mapArg["result"] = 0
 
 	fmt.Print("Введите номер числа фибоначчи:\n")
@@ -32,21 +32,21 @@ func main() {
 
 }
 
-func count(num uint64, mapArg map[string]uint64) uint64 {
+func count(index uint64, mapArg map[string]uint64) uint64 {
 
-	if num == 0 { //если num = 0, выходим из рекурсии.
+	if index == 0 { //если index = 0, выходим из рекурсии.
 		return mapArg["result"]
 	}
 
-	if mapArg["result"] == 0 && mapArg["a"] == 0 && mapArg["b"] == 0 { //ловим первый проход.
-		mapArg["b"] = 1 //при первом проходе result = 0, а = 0, b = 1.
-		return count(num-1, mapArg)
+	if mapArg["result"] == 0 && mapArg["firstArg"] == 0 && mapArg["secondArg"] == 0 { //ловим первый проход.
+		mapArg["secondArg"] = 1 //при первом проходе result = 0, firstArg = 0, secondArg = 1.
+		return count(index-1, mapArg)
 	}
 
-	mapArg["result"] = mapArg["a"] + mapArg["b"] //логика работы, пример: result = a(5) + b(3) = 8
-	mapArg["b"] = mapArg["a"]                    //меняем местами. b(3) = a(5) , => b = 5
-	mapArg["a"] = mapArg["result"]               //a(5) = result(8), a => 8. На следующем шаге: result = a(8)+ b(5)
+	mapArg["result"] = mapArg["firstArg"] + mapArg["secondArg"] //логика работы, пример: result = firstArg(5) + secondArg(3) = 8
+	mapArg["secondArg"] = mapArg["firstArg"]                    //меняем местами. secondArg(3) = firstArg(5) , => secondArg = 5
+	mapArg["firstArg"] = mapArg["result"]                       //firstArg(5) = result(8), firstArg => 8. На следующем шаге: result = firstArg(8)+ secondArg(5)
 
-	return count(num-1, mapArg)
+	return count(index-1, mapArg)
 
 }
