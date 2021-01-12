@@ -2,7 +2,7 @@ package test
 
 import (
 	"reflect"
-	"testProject/TestFibonachiSort/fibo"
+	"testProject/test_fibonachi_sort/fibo"
 	"testing"
 )
 

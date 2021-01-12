@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"testProject/TestFibonachiSort/fibo"
+	"testProject/test_fibonachi_sort/fibo"
 )
 
 func main() {

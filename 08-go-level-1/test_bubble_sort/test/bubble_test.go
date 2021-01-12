@@ -2,7 +2,7 @@ package test
 
 import (
 	"reflect"
-	"testProject/TestBubbleSort/bubblesort"
+	"testProject/test_bubble_sort/bubblesort"
 	"testing"
 )
 
