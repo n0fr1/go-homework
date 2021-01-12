@@ -1,24 +1,28 @@
 package test
 
 import (
+	"reflect"
 	"testProject/TestBubbleSort/bubblesort"
 	"testing"
 )
 
 func TestBubble(t *testing.T) {
 
-	var want []int                                             //пока пробуем простой вариант теста
-	need := []int{-3, -1, 0, 1, 4, 6, 7, 8, 9, 10, 13, 22, 48} //нужно получить
+	in := []int{22, -1, 6, 9, 10, 0, 4, 1, -3, 8, 7, 13, 48} //входные данные
 
-	vTest := []int{22, -1, 6, 9, 10, 0, 4, 1, -3, 8, 7, 13, 48} //входные данные
+	out := []int{-3, -1, 0, 1, 4, 6, 7, 8, 9, 10, 13, 22, 48} //нужно получить
 
-	want = bubblesort.Bubble(vTest) //результат
+	result := bubblesort.Bubble(in) //результат
 
-	for index := range want {
+	for index := range out {
 
-		if want[index] != need[index] {
-			t.Error("Expected ", need[index], " got ", want[index])
-		}
+		t.Run("Testing", func(t *testing.T) {
+
+			if !reflect.DeepEqual(out[index], result[index]) {
+				t.Error("Expected ", out[index], " got ", result[index])
+			}
+
+		})
 
 	}
 

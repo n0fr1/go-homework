@@ -1,6 +1,7 @@
 package test
 
 import (
+	"reflect"
 	"testProject/TestFibonachiSort/fibo"
 	"testing"
 )
@@ -51,10 +52,14 @@ func TestFibo(t *testing.T) {
 
 	for _, tc := range cases {
 
-		result := fibo.Count(tc.in)
-		if result != tc.out {
-			t.Error("in ", tc.in, " out ", tc.out, " result", result)
-		}
+		t.Run(tc.name, func(t *testing.T) {
+			result := fibo.Count(tc.in)
+
+			if !reflect.DeepEqual(tc.out, result) {
+				t.Error("Expected ", tc.out, " got ", result)
+			}
+
+		})
 
 	}
 
