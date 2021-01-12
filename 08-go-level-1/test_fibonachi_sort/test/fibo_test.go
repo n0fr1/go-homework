@@ -2,8 +2,8 @@ package test
 
 import (
 	"reflect"
-	"testProject/test_fibonachi_sort/fibo"
 	"testing"
+	"testproject/test_fibonachi_sort/fibo"
 )
 
 func TestFibo(t *testing.T) {

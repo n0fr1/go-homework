@@ -2,8 +2,8 @@ package test
 
 import (
 	"reflect"
-	"testProject/test_bubble_sort/bubblesort"
 	"testing"
+	"testproject/test_bubble_sort/bubblesort"
 )
 
 func TestBubble(t *testing.T) {

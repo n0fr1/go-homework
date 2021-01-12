@@ -1,3 +1,3 @@
-module testProject
+module testproject
 
 go 1.15
