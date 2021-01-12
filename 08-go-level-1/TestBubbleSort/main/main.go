@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"testProject/src/bubblesort"
+	"testProject/TestBubbleSort/bubblesort"
 )
 
 func main() {

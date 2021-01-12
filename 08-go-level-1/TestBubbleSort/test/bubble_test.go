@@ -1,7 +1,7 @@
 package test
 
 import (
-	"testProject/src/bubblesort"
+	"testProject/TestBubbleSort/bubblesort"
 	"testing"
 )
 

@@ -1,7 +1,7 @@
 package test
 
 import (
-	"testProject/src/fibo"
+	"testProject/TestFibonachiSort/fibo"
 	"testing"
 )
 
