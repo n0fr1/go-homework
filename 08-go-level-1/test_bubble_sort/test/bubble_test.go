@@ -1,9 +1,10 @@
 package test
 
 import (
-	"reflect"
 	"testing"
 	"testproject/test_bubble_sort/bubblesort"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBubble(t *testing.T) {
@@ -12,18 +13,12 @@ func TestBubble(t *testing.T) {
 
 	out := []int{-3, -1, 0, 1, 4, 6, 7, 8, 9, 10, 13, 22, 48} //нужно получить
 
-	result := bubblesort.Bubble(in) //результат
+	result := bubblesort.Bubble(in) //результат сортировки
 
-	for index := range out {
-
+	for index := range out { //тестируем с использованием библиотеки testify
 		t.Run("Testing", func(t *testing.T) {
-
-			if !reflect.DeepEqual(out[index], result[index]) {
-				t.Error("Expected ", out[index], " got ", result[index])
-			}
-
+			assert.Equal(t, out[index], result[index])
 		})
-
 	}
 
 }
