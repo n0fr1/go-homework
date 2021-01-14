@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-
-	"github.com/n0fr1/go-homework/tree/master/02-go-level-1/simple/simplenum"
 )
 
 func main() {
