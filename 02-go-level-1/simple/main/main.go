@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/n0fr1/go-homework/02-go-level-1/simple/simplenum"
 )
 
 func main() {
@@ -20,7 +22,8 @@ func main() {
 			os.Exit(1)
 		}
 
-		simplenum.GetSimpleNum(num)
+		result := simplenum.GetNum(num)
+		fmt.Println(result)
 
 	}
 

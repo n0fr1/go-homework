@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"testproject/test_bubble_sort/bubblesort"
+
+	"github.com/n0fr1/go-homework/08-go-level-1/test_bubble_sort/bubblesort"
 )
 
 func main() {

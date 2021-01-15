@@ -3,7 +3,8 @@ package test
 import (
 	"reflect"
 	"testing"
-	"testproject/test_fibonachi_sort/fibo"
+
+	"github.com/n0fr1/go-homework/08-go-level-1/test_fibonachi_sort/fibo"
 )
 
 func TestFibo(t *testing.T) {
