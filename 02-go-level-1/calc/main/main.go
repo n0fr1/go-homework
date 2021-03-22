@@ -14,14 +14,14 @@ func main() {
 	var operation string
 
 	fmt.Print("Введите первое число: ")
-	a, err := testNumber() //проверяем 1-й введенный аргумент на число
+	argFirst, err := testNumber() //проверяем 1-й введенный аргумент на число
 	if err != nil {
 		fmt.Fprint(os.Stderr, "Вы ввели не число! \n")
 		os.Exit(1)
 	}
 
 	fmt.Print("Введите второе число: ")
-	b, err := testNumber() //проверяем 2-й введенный аргумент на число
+	argSecond, err := testNumber() //проверяем 2-й введенный аргумент на число
 	if err != nil {
 		fmt.Fprint(os.Stderr, "Вы ввели не число! \n")
 		os.Exit(1)
@@ -30,46 +30,48 @@ func main() {
 	fmt.Print("Введите операцию: ")
 	fmt.Scanln(&operation)
 
-	if !(b == 0 && operation == "/") {
-		view(a, b, operation)
+	if !(argSecond == 0 && operation == "/") {
+		view(&argFirst, &argSecond, &operation)
 	} else {
 		fmt.Print("На ноль делить нельзя!")
 	}
 
 }
 
-func view(a, b float64, calcOp string) {
+func view(argFirst *float64, argSecond *float64, calcOp *string) {
 
-	result, err := count(a, b, calcOp) //проверка на ошибку ввода знака операции
+	result, err := count(argFirst, argSecond, calcOp) //проверка на ошибку ввода знака операции
 	if err != nil {
 		fmt.Fprint(os.Stderr, err)
 		os.Exit(1)
 	}
 
 	//здесь немного "поигрался" с выводом.
-	if a == math.Round(a) && b == math.Round(b) { //если оба числа "равны" округленным выражениям
-		fmt.Printf("%.0f %s %.0f %s %.0f", a, calcOp, b, "=", result) //то тогда нет смысла показывать нули после "запятой"
-	} else if a == math.Round(+a) && b != math.Round(b) {
-		fmt.Printf("%.0f %s %f %s %f", a, calcOp, b, "=", result)
+	if *argFirst == math.Round(*argFirst) && *argSecond == math.Round(*argSecond) { //если оба числа "равны" округленным выражениям
+		fmt.Printf("%.0f %s %.0f %s %.0f", *argFirst, *calcOp, *argSecond, "=", result) //то тогда нет смысла показывать нули после "запятой"
+	} else if *argFirst == math.Round(+*argFirst) && *argSecond != math.Round(*argSecond) {
+		fmt.Printf("%.0f %s %f %s %f", *argFirst, *calcOp, *argSecond, "=", result)
 	} else {
-		fmt.Printf("%f %s %f %s %f", a, calcOp, b, "=", result)
+		fmt.Printf("%f %s %f %s %f", *argFirst, *calcOp, *argSecond, "=", result)
 	}
+
 }
 
-func count(a, b float64, calcOp string) (float64, error) {
+func count(argFirst *float64, argSecond *float64, calcOp *string) (float64, error) {
 
-	switch calcOp {
+	switch *calcOp {
 	case "+":
-		return a + b, nil
+		return *argFirst + *argSecond, nil
 	case "-":
-		return a - b, nil
+		return *argFirst - *argSecond, nil
 	case "*":
-		return a * b, nil
+		return *argFirst * *argSecond, nil
 	case "/":
-		return a / b, nil
+		return *argFirst / *argSecond, nil
 	default:
 		return 0, errors.New("Не выбрана операция из доступных: * / + - ")
 	}
+
 }
 
 func testNumber() (float64, error) {
@@ -79,5 +81,4 @@ func testNumber() (float64, error) {
 
 	num, err := strconv.ParseFloat(input.Text(), 64)
 	return num, err
-
 }
