@@ -5,7 +5,12 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+<<<<<<< HEAD
 	"testproject/simple/simplenum"
+=======
+
+	"github.com/n0fr1/go-homework/02-go-level-1/simple/simplenum"
+>>>>>>> tests
 )
 
 func main() {
@@ -21,7 +26,12 @@ func main() {
 			os.Exit(1)
 		}
 
+<<<<<<< HEAD
 		simplenum.GetSimpleNum(num)
+=======
+		result := simplenum.GetNum(num)
+		fmt.Println(result)
+>>>>>>> tests
 
 	}
 
